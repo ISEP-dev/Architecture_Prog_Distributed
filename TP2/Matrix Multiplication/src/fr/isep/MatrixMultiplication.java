@@ -26,7 +26,7 @@ public class MatrixMultiplication extends UnicastRemoteObject implements MatrixC
     }
 
     @Override
-    public String printMatrix(double[][] matrix) throws RemoteException {
+    public String showMatrix(double[][] matrix) throws RemoteException {
         StringBuilder matrixBuilder = new StringBuilder();
 
         for (double[] row : matrix) {

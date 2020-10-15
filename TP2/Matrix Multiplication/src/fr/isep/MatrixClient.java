@@ -7,21 +7,20 @@ public class MatrixClient {
         try {
             MatrixCalculator calculator = (MatrixCalculator) Naming.lookup("rmi://localhost:1099/MatrixCalculator");
 
-
             double[][] firstMatrix = {
-                    new double[]{3d, 5d},
-                    new double[]{6d, 3d},
-                    new double[]{1d, 7d}
+                    new double[]{5, 1},
+                    new double[]{-2, 3},
+                    new double[]{3, 7}
             };
 
             double[][] secondMatrix = {
-                    new double[]{1d, 4d, 3d, 7d},
-                    new double[]{5d, 2d, 9d, 2d}
+                    new double[]{1, 6, 0},
+                    new double[]{4, 3, -1}
             };
 
             double[][] calculatedMatrix = calculator.multiplication(firstMatrix, secondMatrix);
 
-            System.out.println("Matrix multiplication: " + calculator.printMatrix(calculatedMatrix));
+            System.out.println("Matrix multiplication: " + calculator.showMatrix(calculatedMatrix));
 
         } catch (Exception e) {
             e.printStackTrace();

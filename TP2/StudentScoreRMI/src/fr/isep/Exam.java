@@ -3,7 +3,7 @@ package fr.isep;
 import java.io.Serializable;
 
 public class Exam implements Serializable {
-    private String name;
+    private final String name;
     private int score;
     private double coefficient;
 
@@ -15,10 +15,6 @@ public class Exam implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getScore() {

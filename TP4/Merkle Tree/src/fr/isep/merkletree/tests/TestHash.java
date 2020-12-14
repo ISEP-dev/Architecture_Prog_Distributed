@@ -9,7 +9,7 @@ public class TestHash {
     @Test
     public void testHashLength() {
         String s1 = "1";
-        String s2 = "1";
+        String s2 = "test";
 
         Hash hash1 = new Hash(s1);
         Hash hash2 = new Hash(s2);

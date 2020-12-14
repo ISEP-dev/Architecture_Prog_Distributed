@@ -23,6 +23,7 @@ public class LogServer {
                 String line = input.nextLine();
                 MerkleTree merkle = new MerkleTree(line, index);
                 merkleTreeQueue.add(merkle);
+                index++;
             }
         } catch (FileNotFoundException e) {
             System.out.println("No file found");

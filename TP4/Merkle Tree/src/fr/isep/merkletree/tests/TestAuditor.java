@@ -1,7 +1,10 @@
 package fr.isep.merkletree.tests;
 
+import org.junit.Test;
+
 public class TestAuditor {
-    public static void main(String[] args) {
+    @Test
+    public void testAuditor() {
 
     }
 }

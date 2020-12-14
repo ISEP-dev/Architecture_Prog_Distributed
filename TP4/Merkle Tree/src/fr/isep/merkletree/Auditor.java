@@ -19,7 +19,7 @@ public class Auditor {
         return hash.equals(hashRoot);
     }
 
-    private Hash buildNewHash(String event, int index, int end, LinkedList<Hash> path) {
+    public Hash buildNewHash(String event, int index, int end, LinkedList<Hash> path) {
         if (end == 0) {
             return new Hash(event);
         }
@@ -32,5 +32,17 @@ public class Auditor {
         Hash left = path.removeLast();
         Hash right = buildNewHash(event, index - middle, end - middle, path);
         return new Hash(left, right);
+    }
+
+    public LogServer getLogServer() {
+        return logServer;
+    }
+
+    public Hash getHashRoot() {
+        return hashRoot;
+    }
+
+    public int getSize() {
+        return size;
     }
 }

@@ -31,28 +31,28 @@ public class LogServer {
     }
 
     public void buildTree(Queue<MerkleTree> merkleTrees) {
+        if (merkleTrees.size() == 0) {
+            System.out.println("Empty queue");
+            return;
+        }
+
         Queue<MerkleTree>[] merkleQueues = new LinkedList[2];
         merkleQueues[0] = merkleTrees;
         merkleQueues[1] = new LinkedList<>();
-        if (merkleQueues[0].size() == 0) {
-            System.out.println("Empty queue");
-        } else {
-            int a = 0, b = 1;
-            while (merkleQueues[a].size() != 1) {
-                MerkleTree left, right;
-                while (merkleQueues[b].size() > 0) {
-                    left = merkleQueues[a].poll();
-                    right = merkleQueues[a].poll();
-                    if (right == null)
-                        merkleQueues[b].add(left);
-                    else
-                        merkleQueues[b].add(new MerkleTree(left, right));
-                }
-                a = (a + 1) % 2;
-                b = (b + 1) % 2;
+
+        int a = 0, b = 1;
+        while (merkleQueues[a].size() != 1) {
+            MerkleTree left, right;
+            while (merkleQueues[a].size() > 0) {
+                left = merkleQueues[a].poll();
+                right = merkleQueues[a].poll();
+                if (right == null) merkleQueues[b].add(left);
+                else merkleQueues[b].add(new MerkleTree(left, right));
             }
-            tree = merkleQueues[a].poll();
+            a = (a + 1) % 2;
+            b = (b + 1) % 2;
         }
+        tree = merkleQueues[a].poll();
     }
 
     public Hash currentRootHash() {
@@ -150,5 +150,9 @@ public class LogServer {
                 return null;
             }
         }
+    }
+
+    public MerkleTree getTree() {
+        return tree;
     }
 }

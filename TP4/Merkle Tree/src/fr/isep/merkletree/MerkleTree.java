@@ -1,9 +1,9 @@
 package fr.isep.merkletree;
 
 public class MerkleTree {
-    final Hash hash;
-    final MerkleTree left, right;
-    final int start, end, size, power;
+    Hash hash;
+    MerkleTree left, right;
+    int start, end, size, power;
 
     public MerkleTree(String leaf, int index) {
         this.left = null;
@@ -16,6 +16,12 @@ public class MerkleTree {
     }
 
     public MerkleTree(MerkleTree left, MerkleTree right) {
+        if (left.end != right.start - 1) {
+            System.out.println("Merkle Trees are not contiguous");
+            System.out.println("Trees not contiguous, left end at " + left.end + "; right starts at " + right.start );
+            System.exit(1);
+            return;
+        }
         this.left = left;
         this.right = right;
         this.start = left.start;

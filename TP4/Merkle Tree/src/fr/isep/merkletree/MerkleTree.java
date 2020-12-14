@@ -27,4 +27,41 @@ public class MerkleTree {
             this.power = 2 * Math.max(left.power, right.power);
         this.hash = new Hash(left.hash, right.hash);
     }
+
+    public void displayTree(final int offset) {
+        for (int i = 0; i < offset; i++) {
+            System.out.println("  ");
+        }
+        System.out.println("[" + start + "," + end + "]: " + hash.toString());
+        if (left != null) left.displayTree(offset + 1);
+        if (right != null) right.displayTree(offset + 1);
+    }
+
+    public Hash getHash() {
+        return hash;
+    }
+
+    public MerkleTree getLeft() {
+        return left;
+    }
+
+    public MerkleTree getRight() {
+        return right;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getPower() {
+        return power;
+    }
 }

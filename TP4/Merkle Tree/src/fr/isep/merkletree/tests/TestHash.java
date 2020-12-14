@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestHash {
     @Test
-    public void testHash() {
+    public void testHashLength() {
         String s1 = "1";
         String s2 = "1";
 
